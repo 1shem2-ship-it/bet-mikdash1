@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>תפילת אם ובן - ציפייה למקדש | ת"ת ממ"ד שלום רמת-גן</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            background: linear-gradient(135deg, #fffdf0 0%, #fef8e7 50%, #fdf2d8 100%);
+            min-height: 100vh;
+            color: #1e293b;
+            text-align: right;
+            touch-action: manipulation;
+        }
+        .font-serif-heb {
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+        .gold-border {
+            border-color: #e5b95a;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        .gold-btn {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            transition: all 0.25s ease;
+        }
+        .gold-btn:active {
+            transform: scale(0.98);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(229, 185, 90, 0.45);
+            box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.1), 0 8px 10px -6px rgba(217, 119, 6, 0.05);
+        }
+        input, select, textarea {
+            font-size: 16px !important; /* Prevents auto-zoom on iOS */
+        }
+    </style>
+</head>
+<body class="p-3 sm:p-5 flex flex-col items-center justify-start min-h-screen">
+
+    <header class="w-full max-w-xl flex flex-col sm:flex-row items-center justify-between gap-3 bg-white/90 p-3.5 rounded-2xl border border-amber-200/80 shadow-md mb-4 text-right">
+        <div class="flex items-center gap-3">
+            <!-- Official Vector Logo of Talmud Torah Shalom Ramat Gan -->
+            <div class="w-14 h-14 flex-shrink-0">
+                <svg viewBox="0 0 300 300" class="w-full h-full drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="150,15 267,82 267,218 150,285 33,218 33,82" fill="none" stroke="#0284c7" stroke-width="8" stroke-dasharray="10 5" opacity="0.3"/>
+                    <path d="M150 15 L267 218 L33 218 Z" fill="none" stroke="#0284c7" stroke-width="12" stroke-linejoin="round"/>
+                    <path d="M150 285 L267 82 L33 82 Z" fill="none" stroke="#0284c7" stroke-width="12" stroke-linejoin="round"/>
+                    <path id="curve" d="M 60 115 Q 150 65 240 115" fill="none" stroke="transparent"/>
+                    <text font-family="'Frank Ruhl Libre', serif" font-size="19" font-weight="bold" fill="#0369a1">
+                        <textPath href="#curve" startOffset="50%" text-anchor="middle">"ורב שלום בנייך"</textPath>
+                    </text>
+                    <g transform="translate(150, 160) scale(0.65)">
+                        <path d="M-80 0 C-40 -40 -10 -20 0 20 C10 -20 40 -40 80 0 C70 50 20 60 0 45 C-20 60 -70 50 -80 0 Z" fill="#ffffff" stroke="#0369a1" stroke-width="7"/>
+                        <path d="M0 20 L0 45" stroke="#0369a1" stroke-width="5"/>
+                        <path d="M-70 15 C-40 -20 -10 -5 0 25" fill="none" stroke="#0284c7" stroke-width="4"/>
+                        <path d="M70 15 C40 -20 10 -5 0 25" fill="none" stroke="#0284c7" stroke-width="4"/>
+                    </g>
+                    <text x="150" y="240" font-family="'Assistant', sans-serif" font-size="28" font-weight="900" fill="#0c4a6e" text-anchor="middle">ת"ת ממ"ד שלום</text>
+                    <rect x="100" y="250" width="100" height="24" rx="12" fill="#0284c7"/>
+                    <text x="150" y="267" font-family="'Assistant', sans-serif" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">רמת-גן</text>
+                </svg>
+            </div>
+            <div>
+                <h1 class="text-lg sm:text-xl font-black text-sky-950 font-serif-heb leading-tight">בוקר לימוד אמהות ובנים</h1>
+                <p class="text-xs sm:text-sm font-semibold text-amber-700">ת"ת ממ"ד שלום • ציפייה למקדש ברוח רחל אמנו</p>
+            </div>
+        </div>
+        <button onclick="showPasscodePrompt()" class="flex items-center gap-1.5 px-3 py-1.5 bg-amber-100/80 hover:bg-amber-200 text-amber-900 rounded-xl text-xs font-bold transition border border-amber-300">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-amber-700"></i>
+            <span>ניהול הגרלה</span>
+        </button>
+    </header>
+
+    <main class="w-full max-w-xl">
+        <!-- Step Progress Bar -->
+        <div class="glass-card rounded-2xl p-3 mb-4 flex items-center justify-between text-xs font-bold text-amber-950">
+            <div id="step-dot-1" class="flex items-center gap-1.5 text-amber-600">
+                <span class="w-6 h-6 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs font-bold">1</span>
+                <span>פתיחה</span>
+            </div>
+            <div class="h-0.5 flex-1 bg-amber-200 mx-2"></div>
+            <div id="step-dot-2" class="flex items-center gap-1.5 text-slate-400">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs font-bold">2</span>
+                <span>תפילה</span>
+            </div>
+            <div class="h-0.5 flex-1 bg-amber-200 mx-2"></div>
+            <div id="step-dot-3" class="flex items-center gap-1.5 text-slate-400">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs font-bold">3</span>
+                <span>תמונה</span>
+            </div>
+            <div class="h-0.5 flex-1 bg-amber-200 mx-2"></div>
+            <div id="step-dot-4" class="flex items-center gap-1.5 text-slate-400">
+                <span class="w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs font-bold">4</span>
+                <span>הגרלה</span>
+            </div>
+        </div>
+
+        <section id="step-1" class="glass-card rounded-3xl p-5 sm:p-6 mb-4">
+            <!-- Colorful Beit HaMikdash Artwork -->
+            <div class="w-full rounded-2xl overflow-hidden mb-5 border border-amber-300 shadow-inner bg-gradient-to-b from-sky-200 via-amber-100 to-amber-50">
+                <svg viewBox="0 0 600 330" class="w-full h-auto block" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="60%" stop-color="#bae6fd"/>
+                            <stop offset="100%" stop-color="#fef3c7"/>
+                        </linearGradient>
+                        <radialGradient id="sunGlow" cx="50%" cy="30%" r="55%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="35%" stop-color="#fef08a"/>
+                            <stop offset="100%" stop-color="rgba(254, 240, 138, 0)"/>
+                        </radialGradient>
+                        <linearGradient id="goldHekhal" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#fef08a"/>
+                            <stop offset="50%" stop-color="#fde047"/>
+                            <stop offset="100%" stop-color="#ca8a04"/>
+                        </linearGradient>
+                        <linearGradient id="marbleWall" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="100%" stop-color="#f1f5f9"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="600" height="330" fill="url(#skyGrad)"/>
+                    <circle cx="300" cy="95" r="130" fill="url(#sunGlow)"/>
+
+                    <!-- Jerusalem Hills -->
+                    <path d="M 0 250 Q 140 190 300 220 Q 460 200 600 250 L 600 330 L 0 330 Z" fill="#86efac" opacity="0.8"/>
+                    <path d="M 0 270 Q 200 230 400 250 Q 520 240 600 280 L 600 330 L 0 330 Z" fill="#4ade80" opacity="0.6"/>
+
+                    <!-- Foundation Stones (נדבכים) -->
+                    <rect x="130" y="240" width="340" height="40" fill="#fde68a" stroke="#b45309" stroke-width="3" rx="2"/>
+                    <line x1="130" y1="260" x2="470" y2="260" stroke="#d97706" stroke-width="2"/>
+                    <line x1="200" y1="240" x2="200" y2="260" stroke="#d97706" stroke-width="1.5"/>
+                    <line x1="280" y1="240" x2="280" y2="260" stroke="#d97706" stroke-width="1.5"/>
+                    <line x1="360" y1="240" x2="360" y2="260" stroke="#d97706" stroke-width="1.5"/>
+                    <line x1="430" y1="240" x2="430" y2="260" stroke="#d97706" stroke-width="1.5"/>
+
+                    <!-- Ulam - Wide Wings ("אריאל - רחב מלפניו") -->
+                    <rect x="150" y="110" width="300" height="135" fill="url(#marbleWall)" stroke="#b45309" stroke-width="3.5" rx="3"/>
+                    
+                    <!-- Main Central Heichal Body -->
+                    <rect x="210" y="70" width="180" height="175" fill="url(#goldHekhal)" stroke="#b45309" stroke-width="4" rx="3"/>
+
+                    <!-- Crown Battlement / Parapet (מעקה הכותרת) -->
+                    <rect x="145" y="102" width="310" height="12" fill="#d97706" rx="2"/>
+                    <rect x="205" y="62" width="190" height="12" fill="#b45309" rx="2"/>
+
+                    <!-- Roof Spikes ("כלי עורב" - חודים זהובים על הגג) -->
+                    <!-- Spikes on Lower Wings -->
+                    <g fill="#d97706" stroke="#92400e" stroke-width="1">
+                        <polygon points="155,102 158,82 161,102"/>
+                        <polygon points="167,102 170,82 173,102"/>
+                        <polygon points="179,102 182,82 185,102"/>
+                        <polygon points="191,102 194,82 197,102"/>
+                        <polygon points="403,102 406,82 409,102"/>
+                        <polygon points="415,102 418,82 421,102"/>
+                        <polygon points="427,102 430,82 433,102"/>
+                        <polygon points="439,102 442,82 445,102"/>
+                    </g>
+
+                    <!-- Spikes on Main Heichal Roof (כלי עורב מרכזיים) -->
+                    <g fill="#f59e0b" stroke="#78350f" stroke-width="1.2">
+                        <polygon points="212,62 215,38 218,62"/>
+                        <polygon points="224,62 227,38 230,62"/>
+                        <polygon points="236,62 239,38 242,62"/>
+                        <polygon points="248,62 251,38 254,62"/>
+                        <polygon points="260,62 263,38 266,62"/>
+                        <polygon points="272,62 275,38 278,62"/>
+                        <polygon points="284,62 287,35 290,62"/>
+                        <polygon points="296,62 300,30 304,62"/> <!-- Highest Center Spike -->
+                        <polygon points="310,62 313,35 316,62"/>
+                        <polygon points="322,62 325,38 328,62"/>
+                        <polygon points="334,62 337,38 340,62"/>
+                        <polygon points="346,62 349,38 352,62"/>
+                        <polygon points="358,62 361,38 364,62"/>
+                        <polygon points="370,62 373,38 376,62"/>
+                        <polygon points="382,62 385,38 388,62"/>
+                    </g>
+
+                    <!-- Golden Vine / Gilded Cornice Details (גפן של זהב וקישוטים) -->
+                    <path d="M 215 85 Q 300 95 385 85" fill="none" stroke="#b45309" stroke-width="3"/>
+                    <circle cx="250" cy="88" r="4" fill="#f59e0b"/>
+                    <circle cx="300" cy="92" r="5" fill="#f59e0b"/>
+                    <circle cx="350" cy="88" r="4" fill="#f59e0b"/>
+
+                    <!-- Grand Marble Columns (עמודי יכין ובועז בחזית האולם) -->
+                    <rect x="235" y="115" width="18" height="128" fill="#ffffff" stroke="#94a3b8" stroke-width="2" rx="2"/>
+                    <rect x="231" y="110" width="26" height="8" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" rx="1"/>
+                    <rect x="231" y="238" width="26" height="8" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" rx="1"/>
+
+                    <rect x="347" y="115" width="18" height="128" fill="#ffffff" stroke="#94a3b8" stroke-width="2" rx="2"/>
+                    <rect x="343" y="110" width="26" height="8" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" rx="1"/>
+                    <rect x="343" y="238" width="26" height="8" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" rx="1"/>
+
+                    <!-- Golden Gateway (שער האולם הגדול) -->
+                    <path d="M 270 245 L 270 145 Q 300 125 330 145 L 330 245 Z" fill="#92400e" stroke="#78350f" stroke-width="3.5"/>
+                    <path d="M 275 245 L 275 150 Q 300 132 325 150 L 325 245 Z" fill="#fef08a"/>
+
+                    <!-- Radiant Golden Menorah Inside Entrance -->
+                    <path d="M 300 170 L 300 225 M 288 190 Q 300 205 312 190 M 281 180 Q 300 215 319 180" fill="none" stroke="#b45309" stroke-width="3" stroke-linecap="round"/>
+                    <polygon points="295,225 305,225 300,220" fill="#b45309"/>
+                    <!-- Menorah Flames -->
+                    <circle cx="281" cy="177" r="2.5" fill="#f97316"/>
+                    <circle cx="288" cy="187" r="2.5" fill="#f97316"/>
+                    <circle cx="300" cy="167" r="3" fill="#f97316"/>
+                    <circle cx="312" cy="187" r="2.5" fill="#f97316"/>
+                    <circle cx="319" cy="177" r="2.5" fill="#f97316"/>
+
+                    <!-- Bottom Blessing Banner -->
+                    <rect x="120" y="290" width="360" height="30" rx="15" fill="#ffffff" opacity="0.92" stroke="#eab308" stroke-width="2"/>
+                    <text x="300" y="311" font-family="'Frank Ruhl Libre', serif" font-size="18" font-weight="900" fill="#78350f" text-anchor="middle">בִּמְהֵרָה בְיָמֵינוּ יִבָּנֶה בֵּית הַמִּקְדָּשׁ</text>
+                </svg>
+            </div>
+
+            <div class="bg-amber-50/80 border-r-4 border-amber-500 p-3.5 rounded-xl mb-5">
+                <h2 class="text-base font-extrabold text-amber-950 mb-1">שָׁלוֹם אִמָּהוֹת וּבָנִים יְקָרִים!</h2>
+                <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    זה עתה סיימתם את הלימוד המשותף בחברותא על כוח הבכי של רחל אמנו והציפייה המתמדת למקדש. כעת נעבור יחד לניסוח תפילה אישית, צילום תמונה משותפת וכניסה להגרלה המשפחתית לשבת!
+                </p>
+            </div>
+
+            <div class="space-y-4 mb-6">
+                <div>
+                    <label class="block text-xs font-bold text-slate-800 mb-1">שם משפחה:</label>
+                    <input type="text" id="family-name-input" placeholder="למשל: כהן / לוי" class="w-full bg-white border border-amber-300 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300/40 text-right font-medium">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-800 mb-1">שם התלמיד / שמות התלמידים:</label>
+                    <input type="text" id="student-name-input" placeholder="למשל: איתמר ויונתן" class="w-full bg-white border border-amber-300 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300/40 text-right font-medium">
+                </div>
+            </div>
+
+            <button onclick="goToStep(2)" class="w-full gold-btn py-3 rounded-2xl text-white font-black text-sm flex items-center justify-center gap-2 shadow-md">
+                <span>ממשיכים לניסוח התפילה</span>
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </button>
+        </section>
+
+        <section id="step-2" class="glass-card rounded-3xl p-5 sm:p-6 mb-4 hidden">
+            <div class="border-b border-amber-200 pb-3 mb-4">
+                <h2 class="text-base font-black text-sky-950 font-serif-heb">שלב 2: בונים את התפילה המשפחתית</h2>
+                <p class="text-xs text-slate-600">בחרו את הדברים שהכי נוגעים בלבכם מתוך הלימוד המשותף:</p>
+            </div>
+
+            <!-- Choice 1: Yearning Focus -->
+            <div class="mb-5">
+                <label class="block text-xs font-extrabold text-amber-900 mb-2">1. למה אנחנו הכי מתגעגעים בבית המקדש?</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                    <button type="button" onclick="selectFocus(this, 'להרגשת הקרבה והשכינה שמרגישים בירושלים')" class="focus-btn p-3 rounded-xl border border-amber-200 bg-white/80 hover:bg-amber-100/60 font-semibold text-right transition">
+                        ✨ הרגשת הקרבה והשכינה
+                    </button>
+                    <button type="button" onclick="selectFocus(this, 'לשמחה הגדולה של העלייה לרגל יחד עם כל עם ישראל')" class="focus-btn p-3 rounded-xl border border-amber-200 bg-white/80 hover:bg-amber-100/60 font-semibold text-right transition">
+                        🚶‍♂️ שמחת העלייה לרגל של כולם
+                    </button>
+                    <button type="button" onclick="selectFocus(this, 'לשירת הלוויים ולמנורת הזהב המאירה')" class="focus-btn p-3 rounded-xl border border-amber-200 bg-white/80 hover:bg-amber-100/60 font-semibold text-right transition">
+                        🎶 שירת הלוויים ומנורת הזהב
+                    </button>
+                    <button type="button" onclick="selectFocus(this, 'לשלום, לאחדות ולשמחה בלב כל אדם')" class="focus-btn p-3 rounded-xl border border-amber-200 bg-white/80 hover:bg-amber-100/60 font-semibold text-right transition">
+                        🤝 אחדות ושלום אמיתי בעם
+                    </button>
+                </div>
+            </div>
+
+            <!-- Choice 2: Good Deed -->
+            <div class="mb-5">
+                <label class="block text-xs font-extrabold text-amber-900 mb-2">2. המעשה הטוב שאנחנו מוסיפים כאבן לבניין המקדש:</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                    <button type="button" onclick="selectDeed(this, 'דיבור של אהבה וכבוד בבית ובכיתה')" class="deed-btn p-3 rounded-xl border border-amber-200 bg-white/80 hover:bg-amber-100/60 font-semibold text-right transition">
+                        💬 דיבור של כבוד ואהבה
+                    </button>
+                    <button type="button" onclick="selectDeed(this, 'הקשבה סבלנית ועזרה הדדית באהבה')" class="deed-btn p-3 rounded-xl border border-amber-200 bg-white/80 hover:bg-amber-100/60 font-semibold text-right transition">
+                        💖 עזרה הדדית וסבלנות
+                    </button>
+                    <button type="button" onclick="selectDeed(this, 'כוונה ושמחה בלימוד התורה ובתפילה')" class="deed-btn p-3 rounded-xl border border-amber-200 bg-white/80 hover:bg-amber-100/60 font-semibold text-right transition">
+                        📖 כוונה ושמחה בתורה ובתפילה
+                    </button>
+                    <button type="button" onclick="selectDeed(this, 'נתינת צדקה ומאור פנים לכל אדם')" class="deed-btn p-3 rounded-xl border border-amber-200 bg-white/80 hover:bg-amber-100/60 font-semibold text-right transition">
+                        🪙 צדקה ומאור פנים לכל אחד
+                    </button>
+                </div>
+            </div>
+
+            <!-- Freeform Request -->
+            <div class="mb-5">
+                <label class="block text-xs font-extrabold text-amber-900 mb-1">3. בקשה אישית משלכם שתרצו להוסיף מהלב:</label>
+                <input type="text" id="custom-wish-input" placeholder="למשל: שכל החיילים יחזרו בריאים ושלמים לביתם, וכל החולים יתרפאו ברפואה שלמה" class="w-full bg-white border border-amber-300 focus:border-amber-500 rounded-xl px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-300/40 text-right font-medium">
+            </div>
+
+            <div class="flex gap-2">
+                <button onclick="goToStep(1)" class="w-1/3 py-3 rounded-2xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xs transition">
+                    חזרה
+                </button>
+                <button onclick="compilePrayerAndProceed()" class="w-2/3 gold-btn py-3 rounded-2xl text-white font-black text-sm flex items-center justify-center gap-2 shadow-md">
+                    <span>אישור והמשך לצילום</span>
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="step-3" class="glass-card rounded-3xl p-5 sm:p-6 mb-4 hidden">
+            <div class="border-b border-amber-200 pb-3 mb-4">
+                <h2 class="text-base font-black text-sky-950 font-serif-heb">שלב 3: מצטלמים יחד למזכרת</h2>
+                <p class="text-xs text-slate-600">חייכו יחד! התמונה תשתלב על רקע בית המקדש לצד התפילה שחיברתם:</p>
+            </div>
+
+            <!-- Camera Viewfinder -->
+            <div class="relative w-full aspect-square max-w-xs mx-auto bg-slate-900 rounded-3xl overflow-hidden border-4 border-amber-400 shadow-xl mb-4 flex items-center justify-center">
+                <video id="webcam-video" autoplay playsinline muted class="w-full h-full object-cover -scale-x-100 hidden"></video>
+                <img id="photo-preview" class="w-full h-full object-cover hidden" alt="תמונה שצולמה">
+                
+                <div id="camera-placeholder" class="text-center p-4">
+                    <i data-lucide="camera" class="w-12 h-12 text-amber-300 mx-auto mb-2 opacity-80"></i>
+                    <p class="text-xs text-white/90 font-medium">לחצו להפעלת המצלמה או העלו תמונה מהמכשיר</p>
+                </div>
+
+                <!-- Countdown overlay -->
+                <div id="capture-timer" class="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center text-6xl font-black text-amber-400 hidden">
+                    3
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="space-y-2 mb-5">
+                <button id="btn-start-cam" onclick="startCamera()" class="w-full py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition">
+                    <i data-lucide="video" class="w-4 h-4"></i>
+                    <span>הפעל מצלמת סלפי</span>
+                </button>
+                <button id="btn-take-shot" onclick="startCountdown()" class="w-full gold-btn py-3 text-white rounded-xl text-sm font-black flex items-center justify-center gap-2 shadow hidden">
+                    <i data-lucide="smile" class="w-5 h-5"></i>
+                    <span>צלמו עכשיו (ספירה של 3 שניות)</span>
+                </button>
+                
+                <div class="text-center text-xs text-slate-500 font-semibold my-1">או</div>
+
+                <label class="w-full py-2.5 bg-amber-50 hover:bg-amber-100 border border-amber-300 text-amber-900 rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer transition">
+                    <i data-lucide="upload" class="w-4 h-4 text-amber-700"></i>
+                    <span>העלאת תמונה מגלריית הטלפון</span>
+                    <input type="file" accept="image/*" onchange="handleFileUpload(event)" class="hidden">
+                </label>
+            </div>
+
+            <div class="flex gap-2">
+                <button onclick="goToStep(2)" class="w-1/3 py-3 rounded-2xl bg-slate-200 hover:bg-slate-300 text-slate-800 font-bold text-xs transition">
+                    חזרה
+                </button>
+                <button id="btn-finish-art" onclick="generateSouvenirAndProceed()" disabled class="w-2/3 gold-btn py-3 rounded-2xl text-white font-black text-sm flex items-center justify-center gap-2 shadow-md opacity-50 cursor-not-allowed">
+                    <span>יצירת התמונה והמשך</span>
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </section>
+
+        <section id="step-4" class="glass-card rounded-3xl p-5 sm:p-6 mb-4 hidden">
+            <div class="text-center mb-4">
+                <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-black mb-1">איזה יופי! המזכרת מוכנה</span>
+                <h2 class="text-lg font-black text-sky-950 font-serif-heb">התפילה המשותפת על רקע המקדש</h2>
+            </div>
+
+            <!-- Souvenir Preview Container -->
+            <div class="w-full rounded-2xl overflow-hidden border-2 border-amber-300 shadow-xl mb-4 bg-white">
+                <canvas id="souvenir-canvas" class="w-full h-auto block"></canvas>
+            </div>
+
+            <!-- Download and Edit Options -->
+            <div class="grid grid-cols-2 gap-2 mb-5">
+                <button onclick="downloadSouvenirImage()" class="py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>שמירת תמונה לטלפון</span>
+                </button>
+                <button onclick="openEditPrayerModal()" class="py-2.5 bg-amber-100 hover:bg-amber-200 border border-amber-300 text-amber-900 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5">
+                    <i data-lucide="edit-3" class="w-4 h-4"></i>
+                    <span>עריכת נוסח התפילה</span>
+                </button>
+            </div>
+
+            <!-- Lottery Card -->
+            <div class="bg-gradient-to-br from-amber-500 to-amber-600 text-white p-4 sm:p-5 rounded-2xl shadow-lg mb-5 text-right">
+                <div class="flex items-center gap-2 mb-2">
+                    <i data-lucide="gift" class="w-6 h-6 text-amber-200"></i>
+                    <h3 class="font-extrabold text-sm sm:text-base font-serif-heb">הגרלה לעונג שבת משפחתי!</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-amber-50 leading-relaxed mb-3">
+                    שתפו את התמונה שיצרתם <strong>בסטטוס או בקבוצה המשפחתית</strong> כדי להרבות ציפייה למקדש, והיכנסו להגרלה השבועית על <strong>בקבוק מיץ ענבים ומארז עוגיות</strong>!
+                </p>
+
+                <button onclick="shareToWhatsApp()" class="w-full py-2.5 bg-white text-emerald-800 hover:bg-emerald-50 rounded-xl text-xs font-black flex items-center justify-center gap-2 shadow transition mb-3">
+                    <i data-lucide="share-2" class="w-4 h-4 text-emerald-600"></i>
+                    <span>שתפו עכשיו בוואטסאפ (סטטוס / משפחה)</span>
+                </button>
+
+                <!-- Lottery Form -->
+                <form id="lottery-form" onsubmit="handleLotterySignup(event)" class="bg-white/10 backdrop-blur-sm p-3 rounded-xl border border-white/20 space-y-2.5 text-right">
+                    <div>
+                        <label class="block text-xs font-bold text-amber-100 mb-0.5">מספר טלפון ליצירת קשר במקרה של זכייה:</label>
+                        <input type="tel" id="lottery-phone-input" required placeholder="050-0000000" class="w-full bg-white text-slate-900 rounded-lg px-3 py-2 text-xs font-semibold focus:outline-none text-right">
+                    </div>
+                    <label class="flex items-center gap-2 text-xs text-white cursor-pointer select-none">
+                        <input type="checkbox" id="shared-checkbox" required class="w-4 h-4 text-amber-500 rounded focus:ring-0">
+                        <span>שיתפנו את התמונה בסטטוס או בקבוצה המשפחתית!</span>
+                    </label>
+                    <button type="submit" class="w-full py-2.5 bg-amber-900 hover:bg-black text-amber-200 rounded-lg text-xs font-black shadow transition">
+                        אישור כניסה להגרלה
+                    </button>
+                </form>
+            </div>
+
+            <!-- Public Wall of Participants -->
+            <div class="bg-white p-4 rounded-2xl border border-amber-200 shadow-sm text-right">
+                <div class="flex items-center justify-between mb-3">
+                    <h4 class="text-xs font-extrabold text-amber-950 flex items-center gap-1.5">
+                        <i data-lucide="users" class="w-4 h-4 text-amber-600"></i>
+                        <span>משפחות הת"ת שכבר שיתפו ונכנסו להגרלה</span>
+                    </h4>
+                    <span id="participants-count" class="text-xs font-black px-2 py-0.5 bg-amber-100 text-amber-800 rounded-full">0</span>
+                </div>
+                <div id="public-participants-list" class="max-h-40 overflow-y-auto space-y-1.5 text-xs text-slate-700 divide-y divide-amber-100">
+                    <p class="text-xs text-slate-400 py-2 text-center">היו הראשונים להיכנס להגרלה!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Passcode Modal -->
+    <div id="passcode-prompt-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden" dir="rtl">
+        <div class="glass-card max-w-sm w-full rounded-2xl p-5 border-amber-300 shadow-2xl text-right">
+            <div class="flex items-center gap-2 text-amber-900 font-bold font-serif-heb text-base mb-2">
+                <i data-lucide="lock" class="w-5 h-5 text-amber-600"></i>
+                <span>כניסת צוות ת"ת שלום</span>
+            </div>
+            <p class="text-xs text-slate-700 mb-3">הזינו את קוד המנהל לפתיחת לוח ההגרלה:</p>
+            <input type="password" id="manager-passcode-input" placeholder="קוד מנהל" class="w-full bg-amber-50/60 border border-amber-300 rounded-xl px-3 py-2 text-center text-slate-900 text-sm tracking-widest focus:outline-none focus:ring-2 focus:ring-amber-400 mb-2">
+            <div id="passcode-error-msg" class="text-xs text-rose-600 font-bold mb-2 hidden text-center">קוד שגוי, נסו שוב</div>
+            <div class="flex items-center justify-end gap-2 mt-2">
+                <button type="button" onclick="closePasscodeModal()" class="px-4 py-2 text-slate-600 hover:text-slate-800 text-xs font-bold">ביטול</button>
+                <button type="button" onclick="verifyPasscode()" class="px-5 py-2 gold-btn text-white font-bold rounded-xl text-xs shadow">אישור</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Manager Lottery Dashboard Modal -->
+    <div id="lottery-manager-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden" dir="rtl">
+        <div class="glass-card max-w-md w-full rounded-3xl p-5 border-amber-400 shadow-2xl text-right max-h-[90vh] flex flex-col">
+            <div class="flex items-center justify-between border-b border-amber-200 pb-3 mb-3">
+                <h3 class="font-black text-amber-950 font-serif-heb text-base flex items-center gap-2">
+                    <i data-lucide="trophy" class="w-5 h-5 text-amber-600"></i>
+                    <span>ניהול הגרלת עונג שבת</span>
+                </h3>
+                <button onclick="closeLotteryManagerModal()" class="p-1 text-slate-400 hover:text-slate-600">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Live Spin Card -->
+            <div class="bg-amber-100/70 p-4 rounded-2xl border border-amber-300 text-center mb-4">
+                <p class="text-xs text-amber-900 mb-2 font-bold">לחיצה להגרלת המשפחה הזוכה:</p>
+                <button onclick="runLiveLottery()" class="px-6 py-2.5 gold-btn text-white rounded-xl text-xs font-black shadow transition">
+                    🎲 בצע הגרלה חיה עכשיו!
+                </button>
+                <div id="winner-banner" class="mt-3 p-3 bg-white rounded-xl border border-amber-400 font-bold text-amber-950 text-sm hidden"></div>
+            </div>
+
+            <!-- Participants Table -->
+            <div class="flex-1 overflow-y-auto mb-3">
+                <h4 class="text-xs font-bold text-slate-700 mb-2">רשימת הנרשמים המלאה:</h4>
+                <div id="manager-participants-list" class="space-y-1.5 text-xs divide-y divide-amber-100"></div>
+            </div>
+
+            <div class="flex items-center justify-between gap-2 pt-2 border-t border-amber-200">
+                <button onclick="exportLotteryCSV()" class="px-3 py-2 bg-emerald-600 text-white rounded-xl text-xs font-bold flex items-center gap-1.5">
+                    <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+                    <span>ייצוא לאקסל</span>
+                </button>
+                <button onclick="clearLotteryData()" class="px-3 py-2 text-rose-600 hover:bg-rose-50 rounded-xl text-xs font-bold">
+                    איפוס רשימה
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Prayer Modal -->
+    <div id="edit-prayer-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3 hidden" dir="rtl">
+        <div class="glass-card max-w-sm w-full rounded-2xl p-5 border-amber-300 shadow-2xl text-right">
+            <h3 class="font-bold text-amber-950 text-sm mb-2">עריכת נוסח התפילה:</h3>
+            <textarea id="edit-prayer-textarea" rows="6" class="w-full bg-white border border-amber-300 rounded-xl p-3 text-xs leading-relaxed focus:outline-none focus:ring-2 focus:ring-amber-400 mb-3"></textarea>
+            <div class="flex justify-end gap-2">
+                <button onclick="closeEditPrayerModal()" class="px-3 py-1.5 text-slate-600 text-xs font-bold">ביטול</button>
+                <button onclick="saveEditedPrayer()" class="px-4 py-1.5 gold-btn text-white rounded-xl text-xs font-bold">שמור ועדכן תמונה</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* State Variables */
+        let currentStep = 1;
+        let selectedFocusText = "להרגשת הקרבה והשכינה שמרגישים בירושלים";
+        let selectedDeedText = "דיבור של אהבה וכבוד בבית ובכיתה";
+        let capturedPhotoData = null;
+        let cameraStream = null;
+        let finalPrayerText = "";
+
+        const ADMIN_CODE = "770";
+
+        /* Initialize Icons on DOM Load */
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+            renderPublicParticipants();
+        });
+
+        /* Step Navigation Handler */
+        function goToStep(step) {
+            currentStep = step;
+            [1, 2, 3, 4].forEach(s => {
+                const stepElem = document.getElementById(`step-${s}`);
+                const dotElem = document.getElementById(`step-dot-${s}`);
+                if (stepElem) {
+                    if (s === step) {
+                        stepElem.classList.remove('hidden');
+                    } else {
+                        stepElem.classList.add('hidden');
+                    }
+                }
+                if (dotElem) {
+                    const badge = dotElem.querySelector('span:first-child');
+                    if (s <= step) {
+                        dotElem.classList.remove('text-slate-400');
+                        dotElem.classList.add('text-amber-600');
+                        if (badge) {
+                            badge.classList.remove('bg-slate-200', 'text-slate-600');
+                            badge.classList.add('bg-amber-500', 'text-white');
+                        }
+                    } else {
+                        dotElem.classList.add('text-slate-400');
+                        dotElem.classList.remove('text-amber-600');
+                        if (badge) {
+                            badge.classList.add('bg-slate-200', 'text-slate-600');
+                            badge.classList.remove('bg-amber-500', 'text-white');
+                        }
+                    }
+                }
+            });
+
+            if (step !== 3) {
+                stopCamera();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* Selection Helpers */
+        function selectFocus(btn, text) {
+            selectedFocusText = text;
+            document.querySelectorAll('.focus-btn').forEach(b => {
+                b.classList.remove('bg-amber-200', 'border-amber-500', 'font-black');
+                b.classList.add('bg-white/80', 'border-amber-200');
+            });
+            btn.classList.add('bg-amber-200', 'border-amber-500', 'font-black');
+            btn.classList.remove('bg-white/80');
+        }
+
+        function selectDeed(btn, text) {
+            selectedDeedText = text;
+            document.querySelectorAll('.deed-btn').forEach(b => {
+                b.classList.remove('bg-amber-200', 'border-amber-500', 'font-black');
+                b.classList.add('bg-white/80', 'border-amber-200');
+            });
+            btn.classList.add('bg-amber-200', 'border-amber-500', 'font-black');
+            btn.classList.remove('bg-white/80');
+        }
+
+        function compilePrayerAndProceed() {
+            const familyName = document.getElementById('family-name-input').value.trim() || "ישראל";
+            const studentName = document.getElementById('student-name-input').value.trim() || "בננו היקר";
+            const customWish = document.getElementById('custom-wish-input').value.trim() || "שכל חיילינו ישובו לביתם בריאים ושלמים, וכל החולים יזכו לרפואה שלמה ומהירה";
+
+            finalPrayerText = `רִבּוֹנוֹ שֶׁל עוֹלָם,
+עוֹמְדִים לְפָנֶיךָ אֵם וּבְנָהּ, מִמִּשְׁפַּחַת ${familyName} – עִם בְּנֵנוּ הַיָּקָר ${studentName}.
+לָמַדְנוּ עַל רָחֵל אִמֵּנוּ שֶׁבָּכְתָה וְלֹא וִתְּרָה עַל הַגְּאֻלָּה, וְגַם אֲנַחְנוּ מִתְגַּעְגְּעִים כָּל כָּךְ ${selectedFocusText}.
+אָנוּ מְקַבְּלִים עַל עַצְמֵנוּ לְהוֹסִיף אֶבֶן טוֹבָה בְּבִנְיָן הַמִּקְדָּשׁ: ${selectedDeedText}.
+וּבַקָּשָׁתֵנוּ מֵעֹמֶק הַלֵּב: ${customWish}.
+אָנָּא הַקְשֵׁב לִתְפִלָּתֵנוּ וְקַיֵּם בִּמְהֵרָה: "וְשָׁבוּ בָנִים לִגְבוּלָם" וְנִזְכֶּה לִרְאוֹת בְּבִנְיַן אֲרִיאֵל!`;
+
+            goToStep(3);
+        }
+
+        /* Camera & Image Functions */
+        async function startCamera() {
+            try {
+                const video = document.getElementById('webcam-video');
+                const placeholder = document.getElementById('camera-placeholder');
+                const preview = document.getElementById('photo-preview');
+                const btnStart = document.getElementById('btn-start-cam');
+                const btnShot = document.getElementById('btn-take-shot');
+
+                cameraStream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: { ideal: "user" }, width: { ideal: 720 }, height: { ideal: 720 } },
+                    audio: false
+                });
+
+                video.srcObject = cameraStream;
+                video.classList.remove('hidden');
+                placeholder.classList.add('hidden');
+                preview.classList.add('hidden');
+                btnStart.classList.add('hidden');
+                btnShot.classList.remove('hidden');
+            } catch (err) {
+                console.error("Camera access error:", err);
+                const placeholder = document.getElementById('camera-placeholder');
+                if (placeholder) {
+                    placeholder.innerHTML = `<p class="text-xs text-rose-300 font-bold">לא ניתן לגשת למצלמה. אנא השתמשו בהעלאת תמונה מהגלריה.</p>`;
+                }
+            }
+        }
+
+        function stopCamera() {
+            if (cameraStream) {
+                cameraStream.getTracks().forEach(track => track.stop());
+                cameraStream = null;
+            }
+            const video = document.getElementById('webcam-video');
+            if (video) video.classList.add('hidden');
+        }
+
+        function startCountdown() {
+            const timerElem = document.getElementById('capture-timer');
+            timerElem.classList.remove('hidden');
+            let count = 3;
+            timerElem.textContent = count;
+
+            const interval = setInterval(() => {
+                count--;
+                if (count > 0) {
+                    timerElem.textContent = count;
+                } else {
+                    clearInterval(interval);
+                    timerElem.classList.add('hidden');
+                    captureFrame();
+                }
+            }, 1000);
+        }
+
+        function captureFrame() {
+            const video = document.getElementById('webcam-video');
+            const preview = document.getElementById('photo-preview');
+            const hiddenCanvas = document.createElement('canvas');
+            const size = Math.min(video.videoWidth, video.videoHeight);
+            hiddenCanvas.width = size;
+            hiddenCanvas.height = size;
+            const ctx = hiddenCanvas.getContext('2d');
+
+            /* Mirror photo for natural selfie feel */
+            ctx.translate(size, 0);
+            ctx.scale(-1, 1);
+            const startX = (video.videoWidth - size) / 2;
+            const startY = (video.videoHeight - size) / 2;
+            ctx.drawImage(video, startX, startY, size, size, 0, 0, size, size);
+
+            capturedPhotoData = hiddenCanvas.toDataURL('image/jpeg', 0.9);
+            preview.src = capturedPhotoData;
+            preview.classList.remove('hidden');
+            video.classList.add('hidden');
+            stopCamera();
+
+            document.getElementById('btn-take-shot').classList.add('hidden');
+            document.getElementById('btn-start-cam').classList.remove('hidden');
+            document.getElementById('btn-start-cam').innerHTML = `<i data-lucide="refresh-cw" class="w-4 h-4"></i><span>צילום מחדש</span>`;
+            lucide.createIcons();
+
+            const finishBtn = document.getElementById('btn-finish-art');
+            finishBtn.disabled = false;
+            finishBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                capturedPhotoData = e.target.result;
+                const preview = document.getElementById('photo-preview');
+                const placeholder = document.getElementById('camera-placeholder');
+                stopCamera();
+
+                preview.src = capturedPhotoData;
+                preview.classList.remove('hidden');
+                if (placeholder) placeholder.classList.add('hidden');
+
+                const finishBtn = document.getElementById('btn-finish-art');
+                finishBtn.disabled = false;
+                finishBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function generateSouvenirAndProceed() {
+            renderFinalArtwork();
+            goToStep(4);
+        }
+
+        function renderFinalArtwork() {
+            const canvas = document.getElementById('souvenir-canvas');
+            const ctx = canvas.getContext('2d');
+            const w = 900;
+            const h = 1260;
+            canvas.width = w;
+            canvas.height = h;
+
+            /* Radiant Royal Background */
+            const grad = ctx.createLinearGradient(0, 0, 0, h);
+            grad.addColorStop(0, '#fef9c3');
+            grad.addColorStop(0.25, '#fffbeb');
+            grad.addColorStop(0.7, '#fef3c7');
+            grad.addColorStop(1, '#fde68a');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, w, h);
+
+            /* Decorative Gold Double Frame */
+            ctx.lineWidth = 14;
+            ctx.strokeStyle = '#b45309';
+            ctx.strokeRect(10, 10, w - 20, h - 20);
+
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = '#f59e0b';
+            ctx.strokeRect(22, 22, w - 44, h - 44);
+
+            /* Corner Ornaments */
+            const corners = [
+                [26, 26], [w - 26, 26], [26, h - 26], [w - 26, h - 26]
+            ];
+            corners.forEach(([cx, cy]) => {
+                ctx.fillStyle = '#b45309';
+                ctx.beginPath();
+                ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            /* Top Ribbon & Header */
+            ctx.fillStyle = '#78350f';
+            ctx.font = 'bold 36px "Frank Ruhl Libre", serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('בוֹקֶר לִמּוּד אִמָּהוֹת וּבָנִים • צִפִּיָּה לַמִּקְדָּשׁ', w / 2, 70);
+
+            ctx.fillStyle = '#0369a1';
+            ctx.font = 'bold 22px "Assistant", sans-serif';
+            ctx.fillText('ת"ת ממ"ד שָׁלוֹם רָמַת-גַּן • בְּרוּחַ רָחֵל אִמֵּנוּ', w / 2, 102);
+
+            /* Temple Illustration Panoramic Frame */
+            const panelX = 50;
+            const panelY = 120;
+            const panelW = w - 100;
+            const panelH = 300;
+
+            ctx.save();
+            ctx.fillStyle = '#e0f2fe';
+            ctx.fillRect(panelX, panelY, panelW, panelH);
+            ctx.strokeStyle = '#d97706';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(panelX, panelY, panelW, panelH);
+
+            /* Sun Rays in Temple Sky */
+            const sunCenterX = w / 2;
+            const sunCenterY = panelY + 90;
+            const radial = ctx.createRadialGradient(sunCenterX, sunCenterY, 15, sunCenterX, sunCenterY, 190);
+            radial.addColorStop(0, '#ffffff');
+            radial.addColorStop(0.4, '#fef08a');
+            radial.addColorStop(1, 'rgba(254, 240, 138, 0)');
+            ctx.fillStyle = radial;
+            ctx.fillRect(panelX, panelY, panelW, panelH);
+
+            /* Distant Green Hills */
+            ctx.fillStyle = '#86efac';
+            ctx.beginPath();
+            ctx.moveTo(panelX, panelY + panelH);
+            ctx.quadraticCurveTo(panelX + 200, panelY + 200, sunCenterX, panelY + 230);
+            ctx.quadraticCurveTo(panelX + 600, panelY + 200, panelX + panelW, panelY + panelH);
+            ctx.fill();
+
+            /* Temple Foundation Platform */
+            ctx.fillStyle = '#fef08a';
+            ctx.strokeStyle = '#b45309';
+            ctx.lineWidth = 3;
+            ctx.fillRect(sunCenterX - 220, panelY + 225, 440, 65);
+            ctx.strokeRect(sunCenterX - 220, panelY + 225, 440, 65);
+
+            /* Side Wings of Ulam ("רחב מלפניו") */
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(sunCenterX - 180, panelY + 115, 360, 115);
+            ctx.strokeRect(sunCenterX - 180, panelY + 115, 360, 115);
+
+            /* Central High Heichal Tower */
+            const heichalW = 200;
+            const heichalH = 150;
+            const heichalX = sunCenterX - heichalW / 2;
+            const heichalY = panelY + 75;
+
+            const goldGrad = ctx.createLinearGradient(heichalX, heichalY, heichalX, heichalY + heichalH);
+            goldGrad.addColorStop(0, '#fef08a');
+            goldGrad.addColorStop(0.5, '#fde047');
+            goldGrad.addColorStop(1, '#d97706');
+            ctx.fillStyle = goldGrad;
+            ctx.fillRect(heichalX, heichalY, heichalW, heichalH);
+            ctx.strokeRect(heichalX, heichalY, heichalW, heichalH);
+
+            /* Roof Battlements (כרכוב ומעקה) */
+            ctx.fillStyle = '#b45309';
+            ctx.fillRect(heichalX - 8, heichalY - 8, heichalW + 16, 12);
+            ctx.fillRect(sunCenterX - 185, panelY + 110, 370, 10);
+
+            /* Authentic Golden Roof Spikes ("כלי עורב") */
+            ctx.fillStyle = '#f59e0b';
+            ctx.strokeStyle = '#78350f';
+            ctx.lineWidth = 1.5;
+
+            // Spikes on Upper Heichal Roof
+            const numSpikes = 19;
+            const spikeSpacing = heichalW / (numSpikes - 1);
+            for (let i = 0; i < numSpikes; i++) {
+                const sx = heichalX + i * spikeSpacing;
+                const spikeH = (i === Math.floor(numSpikes / 2)) ? 32 : (20 + (i % 2) * 5);
+                ctx.beginPath();
+                ctx.moveTo(sx - 4, heichalY - 8);
+                ctx.lineTo(sx, heichalY - 8 - spikeH);
+                ctx.lineTo(sx + 4, heichalY - 8);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+            }
+
+            // Spikes on Lower Wings
+            for (let sx = sunCenterX - 175; sx <= sunCenterX - 105; sx += 12) {
+                ctx.beginPath();
+                ctx.moveTo(sx - 3, panelY + 110);
+                ctx.lineTo(sx, panelY + 110 - 18);
+                ctx.lineTo(sx + 3, panelY + 110);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+            }
+            for (let sx = sunCenterX + 105; sx <= sunCenterX + 175; sx += 12) {
+                ctx.beginPath();
+                ctx.moveTo(sx - 3, panelY + 110);
+                ctx.lineTo(sx, panelY + 110 - 18);
+                ctx.lineTo(sx + 3, panelY + 110);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+            }
+
+            /* Front Marble Pillars (עמודי שיש) */
+            ctx.fillStyle = '#ffffff';
+            ctx.strokeStyle = '#64748b';
+            ctx.lineWidth = 2;
+            ctx.fillRect(sunCenterX - 65, panelY + 120, 20, 110);
+            ctx.strokeRect(sunCenterX - 65, panelY + 120, 20, 110);
+            ctx.fillRect(sunCenterX + 45, panelY + 120, 20, 110);
+            ctx.strokeRect(sunCenterX + 45, panelY + 120, 20, 110);
+
+            /* Golden Arched Gateway */
+            ctx.fillStyle = '#78350f';
+            ctx.beginPath();
+            ctx.moveTo(sunCenterX - 30, panelY + 230);
+            ctx.lineTo(sunCenterX - 30, panelY + 155);
+            ctx.quadraticCurveTo(sunCenterX, panelY + 130, sunCenterX + 30, panelY + 155);
+            ctx.lineTo(sunCenterX + 30, panelY + 230);
+            ctx.closePath();
+            ctx.fill();
+
+            // Inner Golden Light & Menorah Glow
+            ctx.fillStyle = '#fef08a';
+            ctx.beginPath();
+            ctx.moveTo(sunCenterX - 24, panelY + 230);
+            ctx.lineTo(sunCenterX - 24, panelY + 160);
+            ctx.quadraticCurveTo(sunCenterX, panelY + 138, sunCenterX + 24, panelY + 160);
+            ctx.lineTo(sunCenterX + 24, panelY + 230);
+            ctx.closePath();
+            ctx.fill();
+
+            // Menorah Silhouette
+            ctx.strokeStyle = '#b45309';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(sunCenterX, panelY + 175);
+            ctx.lineTo(sunCenterX, panelY + 215);
+            ctx.moveTo(sunCenterX - 11, panelY + 185);
+            ctx.quadraticCurveTo(sunCenterX, panelY + 200, sunCenterX + 11, panelY + 185);
+            ctx.moveTo(sunCenterX - 18, panelY + 177);
+            ctx.quadraticCurveTo(sunCenterX, panelY + 207, sunCenterX + 18, panelY + 177);
+            ctx.stroke();
+
+            ctx.restore();
+
+            /* User Photo in Round Royal Gold Frame */
+            const photoSize = 240;
+            const photoX = w / 2;
+            const photoY = 485;
+
+            if (capturedPhotoData) {
+                const img = new Image();
+                img.onload = () => {
+                    ctx.save();
+
+                    // Outer Shadow Glow for Photo
+                    ctx.shadowColor = 'rgba(180, 83, 9, 0.35)';
+                    ctx.shadowBlur = 18;
+                    ctx.beginPath();
+                    ctx.arc(photoX, photoY, photoSize / 2 + 6, 0, Math.PI * 2);
+                    ctx.fillStyle = '#b45309';
+                    ctx.fill();
+                    ctx.shadowBlur = 0;
+
+                    // Clipped Circular Photo
+                    ctx.beginPath();
+                    ctx.arc(photoX, photoY, photoSize / 2, 0, Math.PI * 2);
+                    ctx.clip();
+                    ctx.drawImage(img, photoX - photoSize / 2, photoY - photoSize / 2, photoSize, photoSize);
+                    ctx.restore();
+
+                    // Gold Double Ring Frame around photo
+                    ctx.lineWidth = 8;
+                    ctx.strokeStyle = '#d97706';
+                    ctx.beginPath();
+                    ctx.arc(photoX, photoY, photoSize / 2, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    ctx.lineWidth = 2.5;
+                    ctx.strokeStyle = '#fef08a';
+                    ctx.beginPath();
+                    ctx.arc(photoX, photoY, photoSize / 2 - 4, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    drawParchmentAndPrayer(ctx, w, h);
+                };
+                img.src = capturedPhotoData;
+            } else {
+                drawParchmentAndPrayer(ctx, w, h);
+            }
+        }
+
+        function drawParchmentAndPrayer(ctx, w, h) {
+            /* Parchment Container */
+            const py = 640;
+            const pw = w - 100;
+            const ph = 520;
+
+            ctx.save();
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.08)';
+            ctx.shadowBlur = 15;
+            ctx.shadowOffsetY = 6;
+
+            ctx.fillStyle = '#ffffff';
+            ctx.strokeStyle = '#e5b95a';
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.roundRect(50, py, pw, ph, 22);
+            ctx.fill();
+            ctx.stroke();
+            ctx.restore();
+
+            /* Parchment Top Seal */
+            ctx.fillStyle = '#fef3c7';
+            ctx.strokeStyle = '#d97706';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(w / 2 - 190, py + 16, 380, 44, 12);
+            ctx.fill();
+            ctx.stroke();
+
+            /* Parchment Header */
+            ctx.fillStyle = '#b45309';
+            ctx.font = 'bold 26px "Frank Ruhl Libre", serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('תְּפִלַּת הַצִּפִּיָּה שֶׁלָּנוּ לְבֵית הַמִּקְדָּשׁ', w / 2, py + 46);
+
+            /* Prayer text with line wrapping */
+            ctx.fillStyle = '#1e293b';
+            ctx.font = '22px "Assistant", sans-serif';
+            ctx.textAlign = 'right';
+
+            const lines = finalPrayerText.split('\n');
+            let textY = py + 105;
+
+            lines.forEach(line => {
+                ctx.fillText(line, w - 85, textY);
+                textY += 34;
+            });
+
+            /* Bottom Dedicated School Morning Banner */
+            const footerY = h - 55;
+            ctx.fillStyle = '#0369a1';
+            ctx.beginPath();
+            ctx.roundRect(80, footerY - 26, w - 160, 44, 14);
+            ctx.fill();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 22px "Frank Ruhl Libre", "Assistant", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('בוקר אמהות ובנים תלמוד תורה שלום', w / 2, footerY + 4);
+        }
+
+        function downloadSouvenirImage() {
+            const canvas = document.getElementById('souvenir-canvas');
+            const link = document.createElement('a');
+            link.download = 'תפילת_אם_ובן_ציפייה_למקדש.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function openEditPrayerModal() {
+            document.getElementById('edit-prayer-textarea').value = finalPrayerText;
+            document.getElementById('edit-prayer-modal').classList.remove('hidden');
+        }
+
+        function closeEditPrayerModal() {
+            document.getElementById('edit-prayer-modal').classList.add('hidden');
+        }
+
+        function saveEditedPrayer() {
+            const newText = document.getElementById('edit-prayer-textarea').value.trim();
+            if (newText) {
+                finalPrayerText = newText;
+                renderFinalArtwork();
+            }
+            closeEditPrayerModal();
+        }
+
+        function shareToWhatsApp() {
+            const shareText = encodeURIComponent(`יצרנו עכשיו תפילה מיוחדת ומזכרת בבוקר לימוד אמהות ובנים בת"ת ממ"ד שלום רמת-גן: "ושבו בנים לגבולם" - מצפים ומייחלים לבניין בית המקדש במהרה! 🕊️✨`);
+            window.open(`https://api.whatsapp.com/send?text=${shareText}`, '_blank');
+        }
+
+        function handleLotterySignup(event) {
+            event.preventDefault();
+            const phone = document.getElementById('lottery-phone-input').value.trim();
+            const familyName = document.getElementById('family-name-input').value.trim() || "משפחה";
+            const studentName = document.getElementById('student-name-input').value.trim() || "תלמיד";
+
+            let participants = JSON.parse(localStorage.getItem('lottery_participants') || '[]');
+            
+            participants.push({
+                family: familyName,
+                student: studentName,
+                phone: phone,
+                time: new Date().toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' })
+            });
+
+            localStorage.setItem('lottery_participants', JSON.stringify(participants));
+            renderPublicParticipants();
+
+            alert('נרשמתם בהצלחה להגרלת עונג שבת! בהצלחה ושבת שלום!');
+            document.getElementById('lottery-form').reset();
+        }
+
+        function renderPublicParticipants() {
+            const listElem = document.getElementById('public-participants-list');
+            const countElem = document.getElementById('participants-count');
+            const participants = JSON.parse(localStorage.getItem('lottery_participants') || '[]');
+
+            if (countElem) countElem.textContent = participants.length;
+            if (!listElem) return;
+
+            if (participants.length === 0) {
+                listElem.innerHTML = `<p class="text-xs text-slate-400 py-2 text-center">היו הראשונים להיכנס להגרלה!</p>`;
+                return;
+            }
+
+            listElem.innerHTML = participants.map(p => `
+                <div class="py-1.5 flex items-center justify-between">
+                    <div>
+                        <span class="font-bold text-amber-950">משפחת ${p.family}</span>
+                        <span class="text-slate-500 mr-1.5">(${p.student})</span>
+                    </div>
+                    <span class="text-slate-400 text-[10px]">${p.time}</span>
+                </div>
+            `).join('');
+        }
+
+        function showPasscodePrompt() {
+            const modal = document.getElementById('passcode-prompt-modal');
+            const input = document.getElementById('manager-passcode-input');
+            const error = document.getElementById('passcode-error-msg');
+            if (input) input.value = '';
+            if (error) error.classList.add('hidden');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closePasscodeModal() {
+            const modal = document.getElementById('passcode-prompt-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function verifyPasscode() {
+            const input = document.getElementById('manager-passcode-input');
+            const error = document.getElementById('passcode-error-msg');
+            const val = input ? input.value.trim() : '';
+
+            if (val === ADMIN_CODE) {
+                closePasscodeModal();
+                openLotteryManagerModal();
+            } else {
+                if (error) error.classList.remove('hidden');
+            }
+        }
+
+        function openLotteryManagerModal() {
+            renderLotteryManager();
+            const modal = document.getElementById('lottery-manager-modal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeLotteryManagerModal() {
+            const modal = document.getElementById('lottery-manager-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function renderLotteryManager() {
+            const listElem = document.getElementById('manager-participants-list');
+            const participants = JSON.parse(localStorage.getItem('lottery_participants') || '[]');
+            if (!listElem) return;
+
+            if (participants.length === 0) {
+                listElem.innerHTML = `<p class="text-xs text-slate-400 text-center py-4">אין עדיין נרשמים במערכת</p>`;
+                return;
+            }
+
+            listElem.innerHTML = participants.map((p, idx) => `
+                <div class="py-2 flex items-center justify-between">
+                    <div>
+                        <span class="font-bold text-slate-800">${idx + 1}. משפחת ${p.family}</span>
+                        <div class="text-[11px] text-slate-500">תלמידים: ${p.student}</div>
+                    </div>
+                    <div class="text-left font-mono font-bold text-sky-800">${p.phone}</div>
+                </div>
+            `).join('');
+        }
+
+        function runLiveLottery() {
+            const participants = JSON.parse(localStorage.getItem('lottery_participants') || '[]');
+            const banner = document.getElementById('winner-banner');
+            if (!banner) return;
+
+            if (participants.length === 0) {
+                banner.classList.remove('hidden');
+                banner.textContent = 'אין משתתפים רשומים להגרלה עדיין.';
+                return;
+            }
+
+            const luckyIndex = Math.floor(Math.random() * participants.length);
+            const winner = participants[luckyIndex];
+            banner.classList.remove('hidden');
+            banner.innerHTML = `
+                🎉 <strong>המשפחה הזוכה בעונג שבת:</strong><br>
+                משפחת ${winner.family} (התלמיד: ${winner.student})<br>
+                <span class="text-xs text-slate-600 font-mono">טלפון: ${winner.phone}</span>
+            `;
+        }
+
+        function exportLotteryCSV() {
+            const participants = JSON.parse(localStorage.getItem('lottery_participants') || '[]');
+            if (participants.length === 0) {
+                alert('אין נתונים לייצוא');
+                return;
+            }
+
+            let csv = '\uFEFFשם משפחה,שם תלמיד,טלפון,שעת רישום\n';
+            participants.forEach(p => {
+                csv += `"${p.family}","${p.student}","${p.phone}","${p.time}"\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'נרשמים_להגרלת_עונג_שבת.csv';
+            link.click();
+        }
+
+        function clearLotteryData() {
+            if (window.confirm('האם לאפס את רשימת הנרשמים להגרלה?')) {
+                localStorage.removeItem('lottery_participants');
+                renderLotteryManager();
+                renderPublicParticipants();
+                const banner = document.getElementById('winner-banner');
+                if (banner) banner.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
